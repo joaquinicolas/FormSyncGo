@@ -7,7 +7,7 @@ import (
 )
 
 func TestGetForms(t *testing.T) {
-	resp := MakeRequest((rand.Intn(100) < 90),"http://ncrapps.com/apiwf/api/exchange/jn185090@Ncr.com")
+	resp := MakeRequest((rand.Intn(100) < 90),"http://ncrapps.com/apiwf/api/exchange/sp230015@Ncr.com")
 	if resp.StatusCode == 200  {
 		fmt.Println(string(resp.Body))
 	}

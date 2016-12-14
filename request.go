@@ -23,7 +23,13 @@ func MakeRequest(isFirstTime bool,url string) *Response{
 	resp, err := client.Do(req)
 	CheckErr(err)
 	defer resp.Body.Close()
-	body_response,_ := ioutil.ReadAll(resp.Body)
+	var body_response []byte
+	if resp.StatusCode == 200 {
+		body_response,_ = ioutil.ReadAll(resp.Body)
+	}else{
+		body_response = nil
+	}
+
 	return &Response{
 		Status:resp.Status,
 		StatusCode:resp.StatusCode,
